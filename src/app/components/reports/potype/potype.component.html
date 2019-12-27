@@ -1,0 +1,73 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-6">
+      <dropdown 
+        [id]="'po'"
+        [listItems]="dropdownItems"
+        (callback)="dropdownCallback($event)"
+        [label]="'System'">
+      </dropdown> 
+    </div>
+    <div class="col-md-6">
+      <dropdown 
+        [id]="'po1'"
+        [listItems]="dropdownItems"
+        (callback)="dropdownCallback($event)"
+        [label]="'Business Area'">
+      </dropdown> 
+    </div>   
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row justify-content-md-center mt-4">
+    <div class="col-md-11">
+        <canvas class="chart" baseChart #poChart="base-chart" height="300" width="1100" 
+        [datasets]="lineChartData" 
+        [labels]="lineChartLabels" 
+        [options]="lineChartOptions"
+        [colors]="" 
+        [legend]="lineChartLegend" 
+        [chartType]="lineChartType" 
+        (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)">
+      </canvas>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <h6 class="subhead border">Top Most Documents</h6>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <canvas class="chart" baseChart
+        [datasets]="[{ label: lineChartData[0].label, data: lineChartData[0].data, fill: false }]" 
+        [labels]="lineChartLabels" 
+        [options]="lineChartOptions" 
+        [colors]="top1ChartColors"
+        [legend]="" 
+        [chartType]="'line'">
+      </canvas>
+    </div>
+    <div class="col-md-4">
+      <canvas class="chart" baseChart
+        [datasets]="[{ label: lineChartData[1].label, data: lineChartData[1].data, fill: false }]" 
+        [labels]="lineChartLabels" 
+        [options]="lineChartOptions" 
+        [colors]="top2ChartColors"
+        [legend]="" 
+        [chartType]="'line'">
+      </canvas>
+    </div>
+    <div class="col-md-4">
+      <canvas class="chart" baseChart
+        [datasets]="[{ label: lineChartData[2].label, data: lineChartData[2].data, fill: false }]" 
+        [labels]="lineChartLabels" 
+        [options]="lineChartOptions" 
+        [colors]="top3ChartColors"
+        [legend]="" 
+        [chartType]="'line'">
+      </canvas>
+    </div>
+  </div>
+</div>

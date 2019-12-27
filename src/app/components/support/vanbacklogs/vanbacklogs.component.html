@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="border"> Van Backlogs </h1>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (submit)="onSubmit()" >
+      <div class="row mt-4">
+          <div class="col-md-6 text-input-container">
+            <input type="text" id="email" name="email" title="First Name" formControlName="email"/>
+            <label for="email">Email Address</label>
+          </div>
+          <div class="col-md-6 text-input-container">
+            <input type="password" id="password" name="password" title="Last Name" formControlName="password"/>
+            <label for="password">Password</label>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6">
+              <datepicker
+                [id]="'fromDateId'" 
+                #fromDate
+                (callback)="fromDateValue($event)"
+                [allowInput]="true" 
+                [label]="'From Date'"
+              ></datepicker>
+            </div>
+            <div class="col-md-6 text-input-container">
+              <input type="time" id="fromtime" name="fromtime" title="From Time" formControlName="fromTime"/>
+              <label for="fromtime">From Time</label>
+            </div>
+          </div>
+
+          <div class="row mt-4">
+              <div class="col-md-6">
+                <datepicker 
+                  [id]="'toDateId'" 
+                  #toDate 
+                  (callback)="toDateValue($event)"
+                  [allowInput]="true" 
+                  [label]="'To Date'"
+                ></datepicker>
+              </div>
+              <div class="col-md-6 text-input-container">
+                <input type="time" id="totime" name="totime" title="To Time" formControlName="toTime"/>
+                <label for="totime">To Time</label>
+              </div>
+            </div>
+
+            <div class="row mt-4">
+                <checkboxes 
+                  [title]="'Mailboxes'" 
+                  [groupId]="'cbId'" 
+                  [isHorizontal]="true" 
+                  [checkboxes]="checkboxes"
+                  (getValues)="checkboxesValues($event)"></checkboxes>
+              </div>
+
+              <div class="row mt-4">
+                  <button title="Medium Button" type="submit" class="button primary md">Submit</button>
+                </div>
+  </form>
+
+<div class="mt-4">
+  <div *ngFor="let status of statuses; let idx = index">
+      <div class="banner information">
+          <span class="message">{{status}}</span>
+          <span class="close" (click)="onClose(idx)"></span>
+      </div>
+  </div>
+</div> 
+
+  <div class="row mt-4" *ngIf="buildTable">
+    <tables [id]="'tableId'" [columns]="columns" [rows]="rows" [alternatingRows]="true"></tables>
+  </div>
+</div>

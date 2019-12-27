@@ -1,0 +1,62 @@
+<div class="card table-card">
+  <div class="card-toolbar">
+      <span class="card-title">
+          <h2>{{tableHeader}}</h2>
+      </span>
+  </div>
+  <div class="card-content">
+      <div class="table-actions" fxLayout="row" fxLayoutAlign="start center">
+          <div class="button-group" *ngIf="showActions && activeToggle==='list'">
+              <button aria-label="Edit" class="button icon icon_edit" (click)="edit({rows: selected})" [disabled]="selected.length === 0">
+              </button>
+              <button aria-label="Delete" class="button icon icon_delete" (click)="delete({rows: selected})" [disabled]="selected.length === 0">
+              </button>
+          </div>
+          <dropdown [id]="'dropdownIds'"  [listItems]="pageLimitOptions" (callback)="dropdownCallbacks($event)" [label]="'No. of Rows'"></dropdown>
+          
+          <span fxFlex></span>
+          <search *ngIf="showSearch" [placeholder]="'Search Rows'" [isValid]="isSearchValid" (executeSearch)="searchList($event)" (validate)="validateSearch($event)"></search>
+          <div class="button-group" *ngIf="exportenable">
+              <button aria-label="Download" class="button icon icon_file-download" (click)="exportToExcel()"></button>
+          </div>
+          <div class="button-group toggles" *ngIf="showLayoutToggles">
+              <button aria-label="List" class="button icon icon_list" [ngClass]="isActiveToggle('list')" (click)="activeToggle='list'">
+              </button>
+              <button aria-label="Grid" class="button icon icon_grid" [ngClass]="isActiveToggle('grid')" (click)="activeToggle='grid';this.selected=[];">
+              </button>
+          </div>
+      </div>
+      <div class="mat-table-container" *ngIf="activeToggle==='list'">
+          <ngx-datatable #dataTable class="mat-table" [columnMode]="'force'" [rowHeight]="'auto'" 
+                         [headerHeight]="50" [footerHeight]="50"
+              [rows]="internalRows" [selected]="selected" [selectionType]="'checkbox'"
+               [limit]="currentPageLimit" [reorderable]="false"
+              (select)="toggleAll($event)" (activate)="toggleAll($event)" (sort)="sortTable($event)">
+              <ngx-datatable-column [width]="30" [sortable]="false" [canAutoResize]="false" [draggable]="false" [resizeable]="false" [headerCheckboxable]="false"
+                  [checkboxable]="false">
+              </ngx-datatable-column>
+              <ngx-datatable-column *ngFor="let column of columns" [draggable]="false" [resizeable]="false" [sortable]="column.sortable"
+                  name="{{column.name}}" [headerClass]="isColumnSorted" [cellClass]="isColumnSorted">
+              </ngx-datatable-column>
+          </ngx-datatable>
+      </div>
+      <div *ngIf="activeToggle==='grid'" class="table-grid layout-padding">
+          <div class="card" *ngFor="let row of internalRows">
+              <div class="card-toolbar">
+                  <span class="card-title">
+                      <h2>{{row.ldap_ID}}</h2>
+                      <span>{{row.first_NAME}} {{row.last_NAME}}</span>
+                  </span>
+              </div>
+              <div class="card-content" fxLayout="row" fxLayoutAlign="start start" fxLayoutWrap="wrap">
+                  <ng-container *ngFor="let column of columns">
+                      <div fxLayout="column" fxFlex="33" class="section" *ngIf="row[column.key]">
+                          <span class="section-header">{{column.display}}</span>
+                          <span>{{row[column.key]}}</span>
+                      </div>
+                  </ng-container>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

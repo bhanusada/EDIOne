@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <h2 class="subhead border">TMS US</h2>
+    </div>
+  </div>
+  <div class="row justify-content-md-center">
+    <div class="col-md-12 mt-4">
+      <canvas class="chart" baseChart #tmsusChart="base-chart" height="300" width="1100" [datasets]="lineChartData"
+        [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="" [legend]="lineChartLegend" [chartType]="lineChartType"
+        (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+      </canvas>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <h2 class="subhead border">TMS CANADA</h2>
+    </div>
+  </div>
+  <div class="row justify-content-md-center">
+    <div class="col-md-12 mt-4">
+      <canvas class="chart" baseChart #tmscaChart="base-chart" height="300" width="1100" [datasets]="lineChartData"
+        [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="" [legend]="lineChartLegend" [chartType]="lineChartType"
+        (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+      </canvas>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <h6 class="subhead border">Top Most Documents</h6>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <canvas class="chart" baseChart [datasets]="[{ label: lineChartData[0].label, data: lineChartData[0].data, fill: false }]"
+        [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="top1ChartColors" [legend]="" [chartType]="'line'">
+      </canvas>
+    </div>
+    <div class="col-md-4">
+      <canvas class="chart" baseChart [datasets]="[{ label: lineChartData[1].label, data: lineChartData[1].data, fill: false }]"
+        [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="top2ChartColors" [legend]="" [chartType]="'line'">
+      </canvas>
+    </div>
+    <div class="col-md-4">
+      <canvas class="chart" baseChart [datasets]="[{ label: lineChartData[2].label, data: lineChartData[2].data, fill: false }]"
+        [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="top3ChartColors" [legend]="" [chartType]="'line'">
+      </canvas>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="tabs-bordered" id="tabs3">
+    <div role="tablist">
+      <span *ngFor="let tab of tabs;let i = index" 
+        role="tab" 
+        [attr.aria-selected]="tab.selected" 
+        [attr.aria-controls]="tab.controller"
+        [id]=tab.name 
+        [tabindex]="tab.selected ? '0': '-1'" 
+        (click)="changeTab(i)" 
+        [routerLink]="tab.link"
+        style="outline: none">{{tab.heading}}</span>
+    </div>
+<!--    <div *ngFor="let tab of tabs">
+      <div role="tabpanel" 
+        [id]="tab.controller" 
+        [attr.aria-labelledby]="tab.name" 
+        [hidden]="tab.selected ? '': 'hidden'">
+        
+        <router-outlet></router-outlet>
+      </div> 
+    </div> -->
+    <div role="tabpanel">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-6">
+      <dropdown
+        [id]="'alldocs_system'" 
+        [listItems]="systemDropdownItems" 
+        (callback)="systemDropdownCallback($event)"
+        [label]="'System'"></dropdown>
+    </div>
+    <div class="col-md-6">
+      <dropdown 
+        [id]="'alldocs_direction'" 
+        #dropdowndir
+        [listItems]="directionDropdownItems" 
+        (callback)="directionDropdownCallback($event)"
+        [label]="'Direction'"></dropdown>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row justify-content-md-center mt-4">
+    <div class="col-md-11">
+      <canvas baseChart #alldocs="base-chart" class="chart" height="300" width="1100" 
+        [datasets]="alldocsChartData"
+        [labels]="alldocsChartLabels" 
+        [options]="alldocsChartOptions" 
+        [colors]="alldocsChartColors" 
+        [legend]="alldocsChartLegend"
+        [chartType]="alldocsChartType" 
+        (chartHover)="chartHovered($event)" 
+        (chartClick)="chartClicked($event)"></canvas>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,117 @@
+<!-- <div class="header">
+    <div class="header-logo">
+        <i class="icon_homedepot"></i>
+    </div>
+    <div class="header-info">
+        <label class="product-info">{{name}}
+            <label class="version"> v{{version}}</label>
+        </label>
+        <label *ngIf="!empty && userProfile != null" class="user-info">{{userProfile.FullName}}</label>
+        <label *ngIf="empty" class="user-info">Login</label>
+    </div>
+    <div class="header-search"></div>
+    <div class="header-actions">
+        <div *ngIf="!empty && useLogin" (click)="logout()">
+            <i class="icon_exit_to_app"></i> Logout
+        </div>
+    </div>
+</div> -->
+<!-- <div class="header" style="overflow: unset !important">
+    <div class="header-logo">
+        <i class="icon_homedepot"></i>
+    </div>
+    <div class="header-info">
+        <label class="product-info" style="margin-bottom: 0rem !important">B2B ONE</label>
+    </div>
+    <div class="header-search">
+        <input type="search" placeholder="Search Here"/>
+        <i class="icon_search"></i>
+    </div>
+    <div class="header-actions">
+        <div routerLink="/home" style="width: 100px" id="home"><i class="icon_home"></i>Home</div>
+        <div routerLink="reports-showcase" style="outline: none; width: 100px" id="report" > 
+            <i class="icon_chart-bar-1-filled" ></i> Reports
+            <ul class="menu">
+                <li class="menu-list">
+                    <a href="/" class="menu-item">
+                        <h6 style="line-height: 40px">first</h6>
+                    </a>
+                </li>
+                <li class="menu-list">
+                    <a href="/" class="menu-item">
+                        <h6 style="line-height: 40px">second</h6>
+                    </a>
+                </li>
+                <li class="menu-list">
+                    <a href="/" class="menu-item">
+                        <h6 style="line-height: 40px">third</h6>
+                    </a>
+                </li>
+                <li class="menu-list">
+                    <a href="/" class="menu-item">
+                        <h6 style="line-height: 40px">fourth</h6>
+                    </a>
+                </li>
+            </ul>
+        </div>     
+        <div style="width: 100px" id="support">
+            <i class="icon_support-outlined"></i>Support
+            <ul class="menu">
+                <li class="menu-list">
+                    <a href="/" class="menu-item">
+                        <h6 style="line-height: 40px">first</h6>
+                    </a>
+                </li>
+                <li class="menu-list">
+                    <a href="/" class="menu-item">
+                        <h6 style="line-height: 40px">second</h6>
+                    </a>
+                </li>
+                <li class="menu-list">
+                    <a href="/" class="menu-item">
+                        <h6 style="line-height: 40px">third</h6>
+                    </a>
+                </li>
+                <li class="menu-list">
+                    <a href="/" class="menu-item">
+                        <h6 style="line-height: 40px">fourth</h6>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div style="width: 100px" id="help"><i class="icon_help-outlined"></i>Help</div>
+    </div>
+</div>
+-->
+
+<div id="header" class="header wide">
+        <div class="header-logo">
+            <i class="icon_homedepot"></i>
+        </div>
+        <div class="header-info">
+            <label class="product-info" style="margin-bottom: 0rem !important">B2BOne UI</label>
+        </div>
+        <!-- <div class="header-search">
+            <input type="search" placeholder="Search Here" />
+            <i class="icon_search"></i>
+        </div> -->
+        <div id="header-menu" class="header-actions">
+            <ul class="menu">
+                <li *ngFor="let menuItem of userMenuItems" class="simple" [ngClass]="{'current_page_item': activeMenu === menuItem}">
+                    <a class="active" [ngClass]="{'active' : activeMenu === menuItem}" [routerLink]="[menuItem.route]"
+                        (click)="setActiveMenu(menuItem)">
+                        <i class="menu-icon" [ngClass]="menuItem.icon" [style.align]="center"></i> {{menuItem.name}}
+                        <!-- <span class="caret"></span> -->
+                    </a>
+                    <ul class="sub-menu" *ngIf="menuItem.subMenu.length > 0">
+                        <li *ngFor="let submenuItem of menuItem.subMenu">
+                            <a class="active" [routerLink]="[submenuItem.route]" (click)="setActiveMenu(menuItem)">
+                                <i class="menu-icon" [ngClass]="submenuItem.icon"></i> {{submenuItem.name}}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    

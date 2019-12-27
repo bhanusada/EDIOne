@@ -1,0 +1,22 @@
+<div *ngIf="errmsg" class="banner error">
+  <span class="message">Response code : {{errorstatus}}. Please try again and contact B2BTCS if the issue persists</span>
+  <span class="close" (click)="closebanner()"></span>
+</div> 
+  <div>
+      <h1 class="border">SI User Audit Report</h1>
+      <div class="showcase-grid">
+        <div>
+               <dropdown
+               [id]="'dropdownId'"
+               [listItems]="dropdownItems"
+               (callback)="dropdownCallback($event)"
+               [label]="'Select the system'">
+               </dropdown>
+        </div>
+      </div>   
+
+    <div *ngIf="extract">
+      <table-card  [columns]="cols" [rows]="userlist" [orderBy]="'letter'" [limit]="true"
+         [showActions]="false" [exportenable]="true" [showSearch]="true" [showLayoutToggles]="false"></table-card>
+    </div>
+  </div>

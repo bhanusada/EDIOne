@@ -1,0 +1,23 @@
+@charset "utf-8";
+$font-family-text: "Open Sans", sans-serif;
+
+/* LIBRARIES */
+@import "~@swimlane/ngx-datatable/release/themes/material.css";
+
+@import "showcase";
+
+/* UX DEFAULTS */
+@import "~ux-core-styles/src/colors";
+
+@import "tables";
+
+/* COMPONENTS */
+@import "../components/menu/menu.component";
+
+@import "../components/search/search.component";
+
+/* ROUTES */
+@import "../routes/home/home.route";
+
+@import "../routes/login/login.route";
+

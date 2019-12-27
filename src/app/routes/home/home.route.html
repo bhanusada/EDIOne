@@ -1,0 +1,15 @@
+<header [empty]="false" [userProfile]="user.getProfile()"></header>
+<div class="home" fxLayout="column">
+    <div class="home-layout">
+        <div class="home-content">
+                <router-outlet></router-outlet>
+        </div>
+            
+    </div>
+    <!--<div class="home-layout navigation-wrapper">
+       <menu></menu>
+        <div class="home-content">
+            <router-outlet></router-outlet> 
+        </div>
+    </div> -->
+</div>

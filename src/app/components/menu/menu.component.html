@@ -1,0 +1,9 @@
+<div class="sidenav scrollable">
+    <ul class="nav" id="menu">
+        <li *ngFor="let menuItem of menuItems">
+            <a class="active" [ngClass]="{'active' : activeMenu === menuItem}" [routerLink]="[menuItem.route]" (click)="menuAction(menuItem)">
+                <i class="menu-icon" [ngClass]="menuItem.icon"></i> {{menuItem.name}}
+            </a>
+        </li>
+    </ul>
+</div>

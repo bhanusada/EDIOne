@@ -1,0 +1,10 @@
+<div class="search" id="search">
+    <div class="text-input-container search-container">
+        <input placeholder="{{placeholder}}" [(ngModel)]="searchValue" (ngModelChange)="validateSearch()" (keyup)="keystrokeSearch($event)">
+        <!--<i ng-show="searchValue.length" class="icon_close clear-icon" ng-click="clearSearch()"></i>-->
+        <i class="icon_search search-btn" (click)="doSearch()" [ngClass]="{'disabled': !isValid}"></i>
+    </div>
+    <div class="error" *ngIf="!isValid">
+        <div>Please enter valid search criteria</div>
+    </div>
+</div>

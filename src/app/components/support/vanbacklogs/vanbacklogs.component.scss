@@ -1,0 +1,33 @@
+.text-input-container {
+    margin: 0px;
+}
+
+.text-input-container input[type=time] {
+    padding: 5px;
+    margin-top: 27px;
+}
+
+.date-picker .flatpickr-input, .date-range-picker .flatpickr-input {
+    height: 50px;
+}
+
+checkboxes {
+    font-size: 2rem;
+    margin-left: 15px;
+}
+
+.border {
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+}
+
+.banner {
+
+    padding: 8px;
+    margin: 8px;
+}
+
+.sortcolor {
+    background-color: red;
+}

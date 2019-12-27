@@ -1,0 +1,38 @@
+{
+    "local": {
+        "projectInfo": {
+            "appName": "AngularFramework",
+            "hostName": "amf2-local",
+            "memory": "512M",
+            "instances": 1,
+            "env": "nonprod"
+        },
+        "ssoUrl": "https://webapps-qa.homedepot.com/MYTHDPassport/rs/identity",
+        "authUrl": "//localhost.homedepot.com:3000",
+        "apiurl": ""
+    },
+    "develop": {
+        "projectInfo": {
+            "appName": "AngularFramework",
+            "hostName": "amf2-dev",
+            "memory": "512M",
+            "instances": 1,
+            "env": "nonprod"
+        },
+        "ssoUrl": "https://webapps-qa.homedepot.com/MYTHDPassport/rs/identity",
+        "authUrl": "",
+        "apiurl": ""
+    },
+    "production": {
+        "projectInfo": {
+            "appName": "AngularFramework",
+            "hostName": "amf2",
+            "memory": "512M",
+            "instances": 1,
+            "env": "prod"
+        },
+        "ssoUrl": "https://webapps.homedepot.com/MYTHDPassport/rs/identity",
+        "authUrl": "",
+        "apiurl": ""
+    }
+}

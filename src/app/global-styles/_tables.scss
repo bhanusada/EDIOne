@@ -1,0 +1,367 @@
+.mat-table-toolbar {
+    background-color: $white !important;
+    padding: 20px 20px 40px !important;
+    color: $blackA12;
+    font-size: 24px !important;
+    min-height: auto;
+
+    label {
+        margin-bottom: 40px;
+        font-size: 24px;
+    }
+
+    .mat-toolbar-row {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        height: auto !important;
+    }
+
+    .mat-toolbar-tools {
+        padding: 0 !important;
+        color: $blackA12;
+        font-size: 24px;
+        min-height: 36px;
+        padding-top: 20px;
+        width: 100%;
+
+        .button {
+            padding: 0;
+            min-width: 46px;
+            min-height: 46px;
+            font-size: 24px;
+
+            &.md {
+                min-width: 38px;
+                min-height: 38px;
+                font-size: 16px;
+            }
+
+            &.sm {
+                min-width: 30px;
+                min-height: 30px;
+                font-size: 8px;
+            }
+        }
+
+        .actions {
+            min-width: 184px;
+        }
+
+        .toggles {
+            min-width: 92px;
+
+            .active {
+                background-color: $black13 !important;
+                cursor: default;
+                box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.35);
+                border: none;
+            }
+        }
+    }
+}
+
+.mat-table-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    height: 100%;
+
+    .mat-table {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        height: 100%;
+        min-height: 100%;
+
+        & > div.visible {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto;
+            height: 100%;
+            min-height: 100%;
+        }
+
+        .datatable-checkbox {
+            margin-top: -9px;
+            -webkit-margin-before: -15px;
+
+            input[type="checkbox"] {
+                top: 2px;
+
+                &::before {
+                    -webkit-transition: all 0.30s ease-in-out;
+                       -moz-transition: all 0.30s ease-in-out;
+                        -ms-transition: all 0.30s ease-in-out;
+                            transition: all 0.30s ease-in-out;
+                    outline: none;
+                    border: 1px solid $black14;
+                    background-color: $black11;
+                    border-radius: 1px;
+                    width: 20px;
+                    height: 20px;
+                    cursor: pointer;
+                    font-size: 18px;
+                    color: $white;
+                    margin-top: -2px;
+                }
+
+                &:checked {
+                    &:before {
+                        transform: none !important;
+                        content: "\e939";
+                        font-family: "uxicon";
+                        text-align: center;
+                        display: block;
+                        color: $white;
+                        background-color: $green;
+                        border-color: $green;
+                    }
+                }
+            }
+        }
+
+        .datatable-header {
+            border-bottom: 2px solid $black16;
+            text-align: left;
+            cursor: default;
+            height: 56px !important;
+
+            .datatable-row-center {
+                display: flex;
+            }
+
+            .datatable-header-cell {
+                color: $black15;
+                font-size: 14px;
+                font-weight: 700;
+                margin-top: 2px;
+                padding: 15px 20px;
+
+                &:not(.sortable) {
+                    .datatable-header-cell-wrapper,
+                    .datatable-header-cell-label {
+                        cursor: default;
+                    }
+                }
+
+                &[ng-reflect-selection-type="checkbox"]:first-child {
+                    margin-right: 20px;
+                }
+
+                label.datatable-checkbox {
+                    margin-top: -8px;
+                    -webkit-margin-before: -15px;
+                }
+
+                &:focus {
+                    outline: none;
+                }
+
+                &.sortable {
+                    .sort-btn {
+                        &:after {
+                            content: "\e9f0";
+                            font-family: "uxicon";
+                            position: absolute;
+                            top: 0;
+                            bottom: 5px;
+                            bottom: 24px;
+                            right: 10px;
+                            left: 0;
+                            padding-top: 19px;
+                            text-align: right;
+                            font-size: 16px;
+                            color: $orange;
+                        }
+
+                        &.sort-desc.datatable-icon-down:after {
+                            content: "\e933";
+                            font-family: "uxicon";
+                            font-size: 11px;
+                            margin-top: 2px;
+                        }
+
+                        &.sort-asc.datatable-icon-up:after {
+                            content: "\e930";
+                            font-family: "uxicon";
+                            font-size: 11px;
+                            margin-top: 2px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .datatable-body {
+            flex: 1 1 auto;
+            display: flex;
+            height: 100%;
+
+            .empty-row {
+                font-size: 18px;
+                color: $black17;
+                text-align: center;
+                margin: 20px;
+            }
+
+            .datatable-row-wrapper {
+                border-bottom: 1px solid $black14;
+
+                &:last-of-type {
+                    border-bottom: none;
+                }
+
+                .datatable-body-row {
+                    &.datatable-row-even {
+                        background-color: $black10;
+                    }
+
+                    .datatable-body-cell {
+                        color: $black17;
+                        font-size: 16px;
+                        padding: 5px 20px;
+                        text-align: left;
+
+                        .datatable-body-cell-label {
+                            margin-top: 10px;
+                        }
+                    }
+
+                    &:hover {
+                        background-color: $blue10 !important;
+
+                        .datatable-body-cell {
+                            background-color: $blue10 !important;
+                        }
+                    }
+                }
+            }
+
+            &[ng-reflect-selection-type="checkbox"] {
+                .datatable-body-cell:first-child {
+                    margin-right: 20px;
+                }
+            }
+        }
+
+        .is-sorted {
+            background-color: $black11;
+            color: $black17 !important;
+        }
+
+        .datatable-footer {
+            margin: 10px;
+            display: inline-block;
+            width: 98%;
+
+            .page-count {
+                color: $blackA11;
+                font-size: 16px;
+                font-weight: 500;
+                margin-left: 8px;
+            }
+
+            .datatable-pager .pager {
+                border-radius: 2px;
+                margin: 6px 0 !important;
+                padding: 0;
+
+                li {
+                    background-color: $black10;
+                    line-height: 46px;
+                    min-width: 46px;
+                    width: 46px;
+                    height: 46px;
+                    font-size: 16px;
+                    color: $orange;
+                    margin: 0;
+                    padding: 0;
+                    border: 1px solid $blackA10;
+                    border-right: 0;
+                    box-shadow: none;
+                    text-align: center;
+
+                    &:hover {
+                        background-color: $white;
+                    }
+
+                    a {
+                        text-decoration: none;
+                        width: 100%;
+                    }
+
+                    &.disabled {
+                        background-color: $black10;
+                        color: $black14;
+                        cursor: not-allowed;
+
+                        a {
+                            color: $black14;
+                        }
+                    }
+
+                    &:first-child {
+                        display: none;
+                    }
+
+                    &:nth-child(2) {
+                        min-width: 95px;
+                        padding: 0;
+                        line-height: 46px;
+                        height: 46px;
+                        border-radius: 2px 0 0 2px;
+                        margin-right: -4px;
+                    }
+
+                    &:nth-last-child(2) {
+                        min-width: 80px;
+                        padding: 0;
+                        line-height: 46px;
+                        height: 46px;
+                        border-right: 1px solid $blackA10;
+                        border-radius: 0 2px 2px 0;
+                        margin-left: -4px;
+                    }
+
+                    &:last-child {
+                        display: none;
+                    }
+
+                    i.datatable-icon-left:before {
+                        content: "Previous";
+                        font-style: normal;
+                    }
+
+                    i.datatable-icon-right:before {
+                        content: "Next";
+                        font-style: normal;
+                    }
+
+                    &.pages {
+                        &.active {
+                            background-color: $orange !important;
+                            border: 1px solid $orange;
+                            cursor: inherit;
+                            border-right: 1px solid $orange;
+                            border-radius: 0;
+                            z-index: 0;
+
+                            a {
+                                color: $white !important;
+                            }
+
+                            & + li {
+                                border-left: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.mat-table-footer {
+    margin: 10px;
+    min-height: 60px;
+}

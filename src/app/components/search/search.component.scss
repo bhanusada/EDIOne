@@ -1,0 +1,56 @@
+.search {
+    margin: 0 15px;
+    min-height: 46px;
+    min-width: 225px;
+
+    .text-input-container input:not([type]) {
+        padding-right: 40px;
+        margin: 0;
+    }
+
+    .error {
+        color: $red;
+        font-size: 14px;
+    }
+
+    .clear-icon {
+        position: absolute;
+        margin-top: 19px;
+        margin-left: -28px;
+        cursor: pointer;
+        color: $black15;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .search-btn {
+        color: $orange;
+        font-size: 20px;
+        font-weight: 600;
+        cursor: pointer;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        border-radius: 100px;
+        padding: 5px 6px 6px 5px;
+
+        &:hover {
+            background-color: $black12;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &.disabled {
+            color: $black15;
+            cursor: not-allowed;
+
+            &:hover {
+                background-color: transparent;
+            }
+        }
+    }
+}

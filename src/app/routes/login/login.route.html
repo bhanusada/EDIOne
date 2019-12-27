@@ -1,0 +1,46 @@
+<div class="login" fxLayout="column">
+	<header [empty]="true"></header>
+	<section class="main-container" fxLayout="column" fxLayoutAlign="center center">
+		<!-- <banner type="error" [(show)]="invalidCredentials" message="Invalid Credentials: The information you provided did not match. Please try again."></banner> -->
+		<div fxLayout="row" fxLayoutAlign="center start" fxLayoutWrap="wrap">
+			<div class="card login-card">
+				<div class="card-toolbar">
+					<span class="card-title">Provide your login credentials below.</span>
+				</div>
+				<div class="card-content">
+					<radio-buttons [groupId]="'storeRadio'" [radiobuttons]="storeRadioButtons" (getValue)="setLocation($event)"></radio-buttons>
+					<div class="text-input-container" *ngIf="location==='store'" [ngClass]="invalidCredentials ? 'error' : ''">
+						<input [(ngModel)]="storeNumber" id="storeNumber" name="storeNumber" title="Store Number" placeholder="#0000" maxlength="4"
+						 (keypress)="($event.which === 13)?login():0">
+						<label htmlFor="storeNumber">Store Number</label>
+					</div>
+					<div class="text-input-container" [ngClass]="invalidCredentials ? 'error' : ''">
+						<input [(ngModel)]="username" id="username" name="username" title="User ID" placeholder="Enter Your User ID" (keypress)="($event.which === 13)?login():0">
+						<label htmlFor="username">User ID</label>
+					</div>
+					<div class="text-input-container" [ngClass]="invalidCredentials ? 'error' : ''">
+						<input [(ngModel)]="password" [attr.type]="passwordType" id="password" name="password" title="Password" placeholder="Enter Your Password"
+						 (keypress)="($event.which === 13)?login():0">
+						<label htmlFor="password">Password</label>
+						<span class="show-password" (click)="showPassword()">Show</span>
+					</div>
+				</div>
+				<div class="card-actions">
+					<button class="button primary" [disabled]="disableLogin()" (click)="login()">Login</button>
+					<!--<button class="button tertiary md" ng-click="">Forgot Your Password?</button>-->
+				</div>
+			</div>
+			<div class="card info-card">
+				<div class="card-toolbar" fxLayout="column">
+					<span class="card-title">Updates</span>
+					<span class="card-subhead">{{updates.date}}</span>
+				</div>
+				<div class="card-content">
+					<ul class="updates-list">
+						<li *ngFor="let item of updates.items">{{item.text}}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>

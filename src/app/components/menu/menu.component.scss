@@ -1,0 +1,20 @@
+menu {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+.navigation-wrapper .sidenav {
+    z-index: 0 !important;
+    width: 250px !important;
+    min-width: 250px !important;
+
+    ul.nav {
+        margin-top: 130px !important;
+        margin-bottom: 10px !important;
+
+        li {
+            cursor: pointer !important;
+        }
+    }
+}

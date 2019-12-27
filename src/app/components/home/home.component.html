@@ -1,0 +1,220 @@
+<!-- <div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-toolbar">
+          <span class="card-title bg-primary p-5">
+            <h1 class="text-white text-center"> SI PRC </h1>
+          </span>
+        </div>
+        <div class="card-content">
+          <mat-list role="list">
+            <mat-list-item role="listitem">
+              <h3>Status :
+                <span class="badge subtle primary">Online</span>
+              </h3>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              <h3>Queue Depth :
+                <span class="badge subtle primary">00</span>
+              </h3>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              <h3>Long Running Threads :
+                <span class="badge subtle primary">00</span>
+              </h3>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              <h3>Non Business Failures :
+                <span class="badge subtle primary">00</span>
+              </h3>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              <h3>DotCom Failures :
+                <span class="badge subtle primary">00</span>
+              </h3>
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-toolbar">
+          <span class="card-title bg-success p-5">
+            <h1 class="text-white text-center"> SI PRD </h1>
+          </span>
+        </div>
+        <div class="card-content">
+          <mat-list role="list">
+            <mat-list-item role="listitem"> <h3>Status : <span class="badge subtle primary">Online</span></h3></mat-list-item>
+            <mat-list-item role="listitem"> <h3>Queue Depth : <span class="badge subtle primary">00</span></h3></mat-list-item>
+            <mat-list-item role="listitem"> <h3>Long Running Threads : <span class="badge subtle primary">00</span></h3></mat-list-item>
+            <mat-list-item role="listitem"> <h3>Non Business Failures : <span class="badge subtle primary">00</span></h3></mat-list-item>
+          </mat-list>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-toolbar">
+          <span class="card-title bg-warning p-5">
+            <h1 class="text-white text-center"> SI PRE </h1>
+          </span>
+        </div>
+        <div class="card-content">
+          <mat-list role="list">
+            <mat-list-item role="listitem"> <h3>Status : <span class="badge subtle primary">Online</span></h3></mat-list-item>
+            <mat-list-item role="listitem"> <h3>Queue Depth : <span class="badge subtle primary">00</span></h3></mat-list-item>
+            <mat-list-item role="listitem"> <h3>Long Running Threads : <span class="badge subtle primary">00</span></h3></mat-list-item>
+            <mat-list-item role="listitem"> <h3>Non Business Failures : <span class="badge subtle primary">00</span></h3></mat-list-item>
+          </mat-list>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-toolbar">
+          <span class="card-title bg-info p-5">
+            <h1 class="text-white text-center"> GENTRAN </h1>
+          </span>
+        </div>
+        <div class="card-content">
+          <mat-list role="list">
+            <mat-list-item role="listitem"> <h3>Batch Run : <span class="badge subtle primary">On-Time</span></h3></mat-list-item>
+            <mat-list-item role="listitem"> <h3>Abnormal Job Ends : <span class="badge subtle primary">00</span></h3></mat-list-item>
+          </mat-list>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="border"> SI PRC <span class="badge subtle success">Online</span> </h1>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-md-4 mt-2">
+      <canvas class="chart" #canvasjs height="500" width="1100"></canvas>
+    </div>
+    <div class="col-md-4 mt-2">
+      <canvas class="chart" style="background-color: #fff" baseChart #poChart="base-chart" height="500" width="1100"
+      [datasets]="[{ label: prcLineChartData[0].label, data: prcLineChartData[0].data }]"
+      [labels]="lineChartLabels"
+      [options]="lineChartOptions"
+      [colors]="chartColors[0]"
+      [legend]="lineChartLegend"
+      [chartType]="lineChartType">
+    </canvas>
+    </div>
+    <div class="col-md-4 mt-2">
+      <canvas class="chart" style="background-color: #fff" baseChart #poChart="base-chart" height="500" width="1100"
+      [datasets]="[{ label: prcLineChartData[1].label, data: prcLineChartData[1].data }]"
+      [labels]="lineChartLabels"
+      [options]="lineChartOptions"
+      [colors]="chartColors[1]"
+      [legend]="lineChartLegend"
+      [chartType]="lineChartType">
+    </canvas>
+    </div>
+    <div class="col-md-4 mt-2">
+      <canvas class="chart" style="background-color: #fff" baseChart #poChart="base-chart" height="500" width="1100"
+      [datasets]="[{ label: prcLineChartData[2].label, data: prcLineChartData[2].data }]"
+      [labels]="lineChartLabels"
+      [options]="lineChartOptions"
+      [colors]="chartColors[2]"
+      [legend]="lineChartLegend"
+      [chartType]="lineChartType">
+    </canvas>
+    </div>
+    <div class="col-md-4 mt-2">
+      <canvas class="chart" style="background-color: #fff" baseChart #poChart="base-chart" height="500" width="1100"
+      [datasets]="[{ label: prcLineChartData[3].label, data: prcLineChartData[3].data }]"
+      [labels]="lineChartLabels"
+      [options]="lineChartOptions"
+      [colors]="chartColors[3]"
+      [legend]="lineChartLegend"
+      [chartType]="lineChartType">
+    </canvas>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <h1 class="border"> SI PRD <span class="badge subtle success">Online</span> </h1>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-md-4 mt-2">
+      <canvas class="chart" style="background-color: #fff" baseChart #poChart="base-chart" height="500" width="1100"
+      [datasets]="[{ label: prdLineChartData[0].label, data: prdLineChartData[0].data }]"
+      [labels]="lineChartLabels"
+      [options]="lineChartOptions"
+      [colors]="chartColors[0]"
+      [legend]="lineChartLegend"
+      [chartType]="lineChartType">
+    </canvas>
+    </div>
+    <div class="col-md-4 mt-2">
+      <canvas class="chart" style="background-color: #fff" baseChart #poChart="base-chart" height="500" width="1100"
+      [datasets]="[{ label: prdLineChartData[1].label, data: prdLineChartData[1].data }]"
+      [labels]="lineChartLabels"
+      [options]="lineChartOptions"
+      [colors]="chartColors[1]"
+      [legend]="lineChartLegend"
+      [chartType]="lineChartType">
+    </canvas>
+    </div>
+    <div class="col-md-4 mt-2">
+      <canvas class="chart" style="background-color: #fff" baseChart #poChart="base-chart" height="500" width="1100"
+      [datasets]="[{ label: prdLineChartData[2].label, data: prdLineChartData[2].data }]"
+      [labels]="lineChartLabels"
+      [options]="lineChartOptions"
+      [colors]="chartColors[2]"
+      [legend]="lineChartLegend"
+      [chartType]="lineChartType">
+    </canvas>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+      <div class="col-md-12">
+        <h1 class="border"> SI PRE <span class="badge subtle success">Online</span> </h1>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-md-4 mt-2">
+        <canvas class="chart" style="background-color: #fff" baseChart #poChart="base-chart" height="500" width="1100"
+        [datasets]="[{ label: preLineChartData[0].label, data: preLineChartData[0].data }]"
+        [labels]="lineChartLabels"
+        [options]="lineChartOptions"
+        [colors]="chartColors[0]"
+        [legend]="lineChartLegend"
+        [chartType]="lineChartType">
+      </canvas>
+      </div>
+      <div class="col-md-4 mt-2">
+        <canvas class="chart" style="background-color: #fff" baseChart #poChart="base-chart" height="500" width="1100"
+        [datasets]="[{ label: preLineChartData[1].label, data: preLineChartData[1].data }]"
+        [labels]="lineChartLabels"
+        [options]="lineChartOptions"
+        [colors]="chartColors[1]"
+        [legend]="lineChartLegend"
+        [chartType]="lineChartType">
+      </canvas>
+      </div>
+      <div class="col-md-4 mt-2">
+        <canvas class="chart" style="background-color: #fff" baseChart #poChart="base-chart" height="500" width="1100"
+        [datasets]="[{ label: preLineChartData[2].label, data: preLineChartData[2].data }]"
+        [labels]="lineChartLabels"
+        [options]="lineChartOptions"
+        [colors]="chartColors[2]"
+        [legend]="lineChartLegend"
+        [chartType]="lineChartType">
+      </canvas>
+      </div>
+    </div>
+</div>

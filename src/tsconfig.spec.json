@@ -1,0 +1,52 @@
+{
+    "compilerOptions": {
+        "sourceMap": true,
+        "declaration": false,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "target": "es5",
+        "lib": [
+            "es2016",
+            "dom"
+        ],
+        "outDir": "../out-tsc/spec",
+        "module": "commonjs",
+        "baseUrl": "./app",
+        "types": [
+            "jasmine",
+            "node"
+        ],
+        "paths": {
+            "@angular/*": [
+                "../../node_modules/@angular/*"
+            ],
+            "config/*": [
+                "../../config/*"
+            ],
+            "components": [
+                "components/*"
+            ],
+            "globalStyles": [
+                "global-styles/*"
+            ],
+            "routes": [
+                "routes/*"
+            ],
+            "services": [
+                "services/*"
+            ],
+            "shared": [
+                "shared/*"
+            ]
+        }
+    },
+    "files": [
+        "test.ts",
+      "polyfills.ts"
+  ],
+    "include": [
+        "**/*.d.ts",
+        "**/*.spec.ts"
+    ]
+}
